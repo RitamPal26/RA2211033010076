@@ -4,7 +4,8 @@ Open your terminal or command prompt and run:
 
 ```bash
 git clone https://github.com/RitamPal26/RA2211033010076.git
-cd frontend
+cd client
+cd react-social-insights-main
 npm install
 npm run dev
 ```
