@@ -1,3 +1,14 @@
+### Clone the Repository
+
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd frontend
+npm install
+npm run dev
+```
+
 ## Demo
 
 ![Screenshot (148)](https://github.com/user-attachments/assets/5620d5bb-9651-4221-ac35-c2a503700a07)
