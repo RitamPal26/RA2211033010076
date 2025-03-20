@@ -1,0 +1,172 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 48%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Improved scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/40 rounded-full hover:bg-muted-foreground/60 transition-colors;
+  }
+
+  /* Custom animations */
+  .staggered-fade-in > * {
+    animation: fade-in 0.4s cubic-bezier(0.2, 0.65, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  .staggered-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+  .staggered-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+  .staggered-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+  .staggered-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+  .staggered-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+  .staggered-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+  .staggered-fade-in > *:nth-child(7) { animation-delay: 0.7s; }
+  .staggered-fade-in > *:nth-child(8) { animation-delay: 0.8s; }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-sm bg-white/80 dark:bg-black/30 border border-white/20 dark:border-white/10;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+
+  .stat-card {
+    @apply rounded-xl p-6 border bg-card text-card-foreground shadow-sm;
+  }
+
+  /* Interactive elements hover effects */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-md dark:hover:shadow-primary/20;
+  }
+  
+  /* Grid pattern background */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* Gradient button */
+  .gradient-button {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  
+  .gradient-button::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-r from-primary/80 to-primary opacity-0 transition-opacity duration-300;
+  }
+  
+  .gradient-button:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Card with hover effect */
+  .interactive-card {
+    @apply relative overflow-hidden rounded-xl border bg-card transition-all duration-300;
+    @apply hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .interactive-card::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl border-2 border-primary/0 transition-all duration-300;
+  }
+  
+  .interactive-card:hover::after {
+    @apply border-primary/30;
+  }
+}
