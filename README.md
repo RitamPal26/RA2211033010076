@@ -3,7 +3,7 @@
 Open your terminal or command prompt and run:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/RitamPal26/RA2211033010076.git
 cd frontend
 npm install
 npm run dev
